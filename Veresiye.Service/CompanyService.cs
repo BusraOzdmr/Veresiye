@@ -8,7 +8,7 @@ using Veresiye.Model;
 
 namespace Veresiye.Service
 {
-    public class CompanyService : ICompanyServise
+    public class CompanyService : ICompanyService
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IRepository<Company> companyRepository;
@@ -51,7 +51,7 @@ namespace Veresiye.Service
         }
     }
 
-    public interface ICompanyServise
+    public interface ICompanyService
     {
         void Insert(Company company);
         void Update(Company company);

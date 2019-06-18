@@ -38,6 +38,7 @@
             this.IsMdiContainer = true;
             this.Name = "FrmMain";
             this.Text = "Versiye";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }
