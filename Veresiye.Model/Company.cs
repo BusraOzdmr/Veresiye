@@ -8,6 +8,7 @@ namespace Veresiye.Model
 {
     public class Company : BaseEntity
     {
+        
         public string Name { get; set; }
         public string Phone { get; set; }
         public string City { get; set; }

@@ -29,37 +29,39 @@ namespace Veresiye.Service
             return user;
         }
 
-        public bool Register(string userName, string password, string confirmPassword)
+        public RegisterStatus Register(User user)
         {
-            if(password != confirmPassword)
+            user.UserName = user.UserName.ToLower();
+            if (string.IsNullOrEmpty(user.UserName))
             {
-                return false;
-            }else if (string.IsNullOrEmpty(userName))
-            {
-                return false;
+                return RegisterStatus.InvalidFields;
             }
             else
             {
-                var user = userRepository.Get(x => x.UserName == userName);
-                if(user != null)
+                var newUser = userRepository.Get(x => x.UserName == user.UserName);
+                if(newUser != null)
                 {
-                    return false;
+                    return RegisterStatus.UserAlreadyExists;
                 }
             }
-
-            var newUser = new User();
-            newUser.UserName = userName;
-            newUser.Password = password;
-            userRepository.Insert(newUser);
+            
+            userRepository.Insert(user);
             unitOfWork.SaveChanges();
-            return true;
+            return RegisterStatus.Success;
         }
     }
 
     public interface IUserService
     {
         User Login(string userName, string password);
-        bool Register(String userName, string password, string confirmPassword);
+        RegisterStatus Register(User userName);
         IEnumerable<User> GetAll();
+    }
+
+    public enum RegisterStatus
+    {
+        Success = 1,
+        InvalidFields = 2,
+        UserAlreadyExists = 3
     }
 }

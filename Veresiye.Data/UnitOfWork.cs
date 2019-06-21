@@ -15,7 +15,7 @@ namespace Veresiye.Data
         }
         public void SaveChanges()
         {
-
+            db.SaveChanges();
         }
     }
 }

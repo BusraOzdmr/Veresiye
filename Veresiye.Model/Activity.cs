@@ -12,6 +12,7 @@ namespace Veresiye.Model
         public decimal Amount { get; set; }
         public DateTime TransactionDate { get; set; }
         public ActivityType ActivityType { get; set; }
+        public int CompanyId { get; set; }
         public virtual Company Company { get; set; } //virtual using for lazy loading
     }
 }

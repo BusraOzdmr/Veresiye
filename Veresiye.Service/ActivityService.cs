@@ -10,10 +10,10 @@ namespace Veresiye.Service
 {
     public class ActivityService : IActivityService
     {
-        public readonly UnitOfWork unitOfWork;
+        public readonly IUnitOfWork unitOfWork;
         public readonly IRepository<Activity> activityRepository;
         
-        public ActivityService(UnitOfWork unitOfWork, IRepository<Activity> activityRepository)
+        public ActivityService(IUnitOfWork unitOfWork, IRepository<Activity> activityRepository)
         {
             this.unitOfWork = unitOfWork;
             this.activityRepository = activityRepository;
@@ -32,6 +32,11 @@ namespace Veresiye.Service
         public IEnumerable<Activity> GetAll()
         {
             return activityRepository.GetAll();
+        }
+
+        public IEnumerable<Activity> GetAllByCompanyId(int companyId)
+        {
+            return activityRepository.GetAll(x => x.CompanyId == companyId);
         }
 
         public void Insert(Activity activity)
@@ -53,6 +58,7 @@ namespace Veresiye.Service
         void Update(Activity activity);
         void Delete(int id);
         IEnumerable<Activity> GetAll();
+        IEnumerable<Activity> GetAllByCompanyId(int companyId);
         Activity Get(int id);
     }
 }
