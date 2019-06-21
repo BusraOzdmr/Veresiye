@@ -38,9 +38,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.BtnDuzenle = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.BtnDuzenle = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,14 +146,14 @@
             this.panel1.Size = new System.Drawing.Size(768, 128);
             this.panel1.TabIndex = 18;
             // 
-            // btnAdd
+            // btnDelete
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 102);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 18;
-            this.btnAdd.Text = "Yeni İşlem";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(176, 102);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 20;
+            this.btnDelete.Text = "Sil";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // BtnDuzenle
             // 
@@ -164,14 +164,15 @@
             this.BtnDuzenle.Text = "Düzenle";
             this.BtnDuzenle.UseVisualStyleBackColor = true;
             // 
-            // btnDelete
+            // btnAdd
             // 
-            this.btnDelete.Location = new System.Drawing.Point(176, 102);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 20;
-            this.btnDelete.Text = "Sil";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(12, 102);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 18;
+            this.btnAdd.Text = "Yeni İşlem";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // dataGridView1
             // 
